@@ -1,20 +1,37 @@
 list_tasks = []
 
-while True:
-    TaskList = int(input("Выберите действие:\n 1. Добавить задачу\n 2. Просмотреть список задач \n 3. Удалить задачу \n 4. Выйти из программы"))
-    if TaskList == 1:
+def add_task():
         a = input("Добавить задачу ")
         list_tasks.append(a)
         print("Задача добавлена!")
-    elif TaskList == 2:
+
+def view_task():
         print("Список задач")
         print(list_tasks)
-    elif TaskList == 3:
         del_value = int(input("Выберите номер задачи для удаления: "))
         list_tasks.pop(del_value - 1)
         print(list_tasks)
-    elif TaskList == 4:
-        print("Программа завершена")
-        break
-    else:
-        print("Error")
+
+def delete_task():
+        view_task()
+        del_value = int(input("Выберите номер задачи для удаления: "))
+        list_tasks.pop(del_value - 1)
+        print(list_tasks)
+
+def main():
+    while True:
+        print("Выберите задачу ")
+        print("Выберите действие:\n 1. Добавить задачу\n 2. Просмотреть список задач \n 3. Удалить задачу \n 4. Выйти из программы")
+
+        choice = input("Вы выбрали ")
+
+        if choice == "1":
+            add_task()
+        elif choice == "2":
+            view_task()
+        elif choice == "3":
+            delete_task()
+        elif choice == "4":
+            print("Программа завершена")
+            break
+main()
